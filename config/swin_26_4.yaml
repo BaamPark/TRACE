@@ -1,0 +1,59 @@
+# Use trainer_multilabel.py
+
+MODEL:
+  TYPE: swin
+  NAME: SwinSigmoid
+  DROP_PATH_RATE: 0.5
+  DROP_RATE: 0.0
+  DROP_PATH_RATE: 0.1 #Attention dropout rate
+  NUMNBER_OF_CLASSES: [3,4,3,2]  #It doesn't have na class [3,4,3,5] 
+  METRIC_LOSS_TYPE: 'binary_cross_entropy'
+  PRETRAINED: "data/swin_base_patch4_window7_224_22k.pth"
+  FEATURE_CHANNEL_DIM: 1024
+  SWIN:
+    EMBED_DIM: 128
+    DEPTHS: [ 2, 2, 18, 2 ]
+    NUM_HEADS: [ 4, 8, 16, 32 ]
+    WINDOW_SIZE: 7
+    PATCH_SIZE: 4
+    MLP_RATIO: 4 #mlp_ratio (float): Ratio of mlp hidden dim to embedding dim.
+    QKV_BIAS: True #If True, add a learnable bias to query, key, value.
+    APE: False #If True, add absolute position embedding to the patch embedding
+    PATCH_NORM: True
+    IN_CHANS: 3
+  
+TRAIN:
+  USE_CHECKPOINT: False
+
+DATA:
+  IMG_SIZE: 224
+
+TRAINER:
+  ACCELERATOR: "gpu"
+  DEVICES: [0]
+
+DATASET:
+  NAMES: "PPE_dataset_KFold" #'PPE multilabel dataset' #PPEMTSigmoidDataset
+  TRAIN_LABEL_PATH: "data/pacn_dataset_26/label.json"
+  VAL_LABEL_PATH: "data/pacn_dataset_26/label.json"
+  TEST_LABEL_PATH: "data/pacn_dataset_26/label.json"
+  IMG_PATH: "data/pacn_dataset_26/image"
+  FOLD_IDX: 4
+
+  LABEL_PATH: 
+  INPUT_IMG_SIZE: [224,224]
+  RANDOM_ROTATION_RANGE: [-90, 90]
+  PROB: 0.5 # random horizontal flip
+  RE_PROB: 0.0
+
+HYPERPARAM:
+  OPTIMIZER_NAME: 'AdamW'
+  SCHEDULER_NAME: 'CosineAnnealingLR'
+  BATCH_SIZE: 32
+  LR: 0.0001
+  MOMENTUM: 0.9
+  WEIGHT_DECAY: 0.0005
+  NUM_EPOCH: 20
+
+CHECKPOINT_PATH: false
+SAVED_MODEL_PATH: 'lightning_logs/swin_fold4/version_0/checkpoints/epoch=10-val_mean_F1=0.84.ckpt'

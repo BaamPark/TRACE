@@ -1,0 +1,37 @@
+MODEL:
+  NAME: 'clothingAttribute_alexnet'
+  TYPE: TAN
+  BACKBONE: 'alexnet'
+  NUMNBER_OF_CLASSES: [3,4,3,2] 
+  METRIC_LOSS_TYPE: 'binary_cross_entropy'
+
+
+TRAINER:
+  ACCELERATOR: "gpu"
+  DEVICES: [0]
+
+HYPERPARAM:
+  OPTIMIZER_NAME: 'SGD'
+  SCHEDULER_NAME: 'StepLR'
+  BATCH_SIZE: 32
+  LR: 0.001
+  MOMENTUM: 0.9
+  WEIGHT_DECAY: 0.001
+  NUM_EPOCH: 20
+
+DATASET:
+  NAMES: "PPE_dataset_KFold" #'PPE multilabel dataset' #PPEMTSigmoidDataset
+  TRAIN_LABEL_PATH: "data/pacn_dataset_26/label.json"
+  VAL_LABEL_PATH: "data/pacn_dataset_26/label.json"
+  TEST_LABEL_PATH: "data/pacn_dataset_26/label.json"
+  IMG_PATH: "data/pacn_dataset_26/image"
+  FOLD_IDX: 0
+
+  LABEL_PATH: 
+  INPUT_IMG_SIZE: [224,224]
+  RANDOM_ROTATION_RANGE: [-90, 90]
+  PROB: 0.5 # random horizontal flip
+  RE_PROB: 0.0
+
+CHECKPOINT_PATH: false
+SAVED_MODEL_PATH: 'lightning_logs/0423_tanVGG_mt_trainall_attr3432/version_0/checkpoints/last.ckpt'
