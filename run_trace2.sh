@@ -1,19 +1,8 @@
-# python train.py --cfg "config/swin.yaml" --logdir  "test"
-
-# python train.py --cfg "config/swin_26.yaml" --logdir  "swin26_fold0" --fold 0
-# python train.py --cfg "config/swin_26.yaml" --logdir  "swin26_fold1" --fold 1
-# python train.py --cfg "config/swin_26.yaml" --logdir  "swin26_fold2" --fold 2
-# python train.py --cfg "config/swin_26.yaml" --logdir  "swin26_fold3" --fold 3
-# python train.py --cfg "config/swin_26.yaml" --logdir  "swin26_fold4" --fold 4
-
-
-
-
-# python inference/trace2.py --video_path "input_videos/10.29 scenario 1 trauma 1 above bed.avi" --exp_name "1125_2025_swin26_fold0" --model "config/swin_26_0.yaml" --thr 0.1
-# python inference/trace2.py --video_path "input_videos/10.29 scenario 2 trauma 1 above bed.avi" --exp_name "1125_2025_swin26_fold0" --model "config/swin_26_0.yaml" --thr 0.1
-# python inference/trace2.py --video_path "input_videos/10.29 scenario 3 trauma 1 above bed.avi" --exp_name "1125_2025_swin26_fold0" --model "config/swin_26_0.yaml" --thr 0.1
-# python inference/trace2.py --video_path "input_videos/10.29 scenario 4 trauma 1 above bed.mp4" --exp_name "1125_2025_swin26_fold0" --model "config/swin_26_0.yaml" --thr 0.1
-# python inference/trace2.py --video_path "input_videos/10.29 scenario 5 trauma 1 above bed.avi" --exp_name "1125_2025_swin26_fold0" --model "config/swin_26_0.yaml" --thr 0.1
+python inference/trace2.py --video_path "input_videos/10.29 scenario 1 trauma 1 above bed.avi" --exp_name "1125_2025_swin26_fold0" --model "config/swin_26.yaml" --thr 0.1
+python inference/trace2.py --video_path "input_videos/10.29 scenario 2 trauma 1 above bed.avi" --exp_name "1125_2025_swin26_fold0" --model "config/swin_26.yaml" --thr 0.1
+python inference/trace2.py --video_path "input_videos/10.29 scenario 3 trauma 1 above bed.avi" --exp_name "1125_2025_swin26_fold0" --model "config/swin_26.yaml" --thr 0.1
+python inference/trace2.py --video_path "input_videos/10.29 scenario 4 trauma 1 above bed.mp4" --exp_name "1125_2025_swin26_fold0" --model "config/swin_26.yaml" --thr 0.1
+python inference/trace2.py --video_path "input_videos/10.29 scenario 5 trauma 1 above bed.avi" --exp_name "1125_2025_swin26_fold0" --model "config/swin_26.yaml" --thr 0.1
 
 # python inference/trace2.py --video_path "input_videos/10.29 scenario 1 trauma 1 above bed.avi" --exp_name "1125_2025_swin26_fold1" --model "config/swin_26_1.yaml" --thr 0.1
 # python inference/trace2.py --video_path "input_videos/10.29 scenario 2 trauma 1 above bed.avi" --exp_name "1125_2025_swin26_fold1" --model "config/swin_26_1.yaml" --thr 0.1
@@ -69,7 +58,7 @@
 # python inference/trace2.py --video_path "input_videos/10.29 scenario 2 trauma 1 above bed.avi" --exp_name "1125_2025_swin26_thr0.05" --model "config/swin_26.yaml" --thr 0.05
 # python inference/trace2.py --video_path "input_videos/10.29 scenario 3 trauma 1 above bed.avi" --exp_name "1125_2025_swin26_thr0.05" --model "config/swin_26.yaml" --thr 0.05
 # python inference/trace2.py --video_path "input_videos/10.29 scenario 4 trauma 1 above bed.mp4" --exp_name "1125_2025_swin26_thr0.05" --model "config/swin_26.yaml" --thr 0.05
-python inference/trace2.py --video_path "input_videos/10.29 scenario 5 trauma 1 above bed.avi" --exp_name "1125_2025_swin26_thr0.05" --model "config/swin_26.yaml" --thr 0.05
+# python inference/trace2.py --video_path "input_videos/10.29 scenario 5 trauma 1 above bed.avi" --exp_name "1125_2025_swin26_thr0.05" --model "config/swin_26.yaml" --thr 0.05
 
 
 # python inference/trace2.py --video_path "input_videos/Vpen1.mp4" --exp_name "1126_2025_swin26_fold0" --model "config/swin_26_0.yaml" --thr 0.1
